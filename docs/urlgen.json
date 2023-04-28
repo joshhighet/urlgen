@@ -1,0 +1,482 @@
+[
+    {
+        "category": "ip",
+        "provider": "abuseipdb.com",
+        "searchstring": "https://www.abuseipdb.com/check/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "shodan.io",
+        "searchstring": "https://www.shodan.io/host/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "securitytrails.com",
+        "searchstring": "https://securitytrails.com/list/ip/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "virustotal.com",
+        "searchstring": "https://www.virustotal.com/gui/ip-address/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "urlscan.io",
+        "searchstring": "https://urlscan.io/search/#%s"
+    },
+    {
+        "category": "ip",
+        "provider": "exchange.xforce.ibmcloud.com",
+        "searchstring": "https://exchange.xforce.ibmcloud.com/ip/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "viz.greynoise.io",
+        "searchstring": "https://viz.greynoise.io/ip/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "iknowwhatyoudownload.com",
+        "searchstring": "https://iknowwhatyoudownload.com/en/peer/?ip=%s"
+    },
+    {
+        "category": "ip",
+        "provider": "virustotal.com Graph",
+        "searchstring": "https://www.virustotal.com/graph/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "whatsmydns.net PTR",
+        "searchstring": "https://www.whatsmydns.net/dns-lookup/ptr-records?server=google&query=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "virustotal.com Graph",
+        "searchstring": "https://www.virustotal.com/graph/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "crt.sh",
+        "searchstring": "https://crt.sh/?q=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "mxtoolbox.com MX Blacklist",
+        "searchstring": "https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a%s&run=toolpage"
+    },
+    {
+        "category": "domain",
+        "provider": "email-format.com",
+        "searchstring": "https://www.email-format.com/d/%s/"
+    },
+    {
+        "category": "domain",
+        "provider": "securitytrails.com",
+        "searchstring": "https://securitytrails.com/domain/%s/dns"
+    },
+    {
+        "category": "domain",
+        "provider": "builtwith.com",
+        "searchstring": "https://builtwith.com/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "virustotal.com",
+        "searchstring": "https://www.virustotal.com/gui/domain/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "urlscan.io",
+        "searchstring": "https://urlscan.io/search/#%s"
+    },
+    {
+        "category": "domain",
+        "provider": "dnsmap.io",
+        "searchstring": "https://dnsmap.io/#A/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "similarweb.com",
+        "searchstring": "https://www.similarweb.com/website/%s/"
+    },
+    {
+        "category": "domain",
+        "provider": "exchange.xforce.ibmcloud.com",
+        "searchstring": "https://exchange.xforce.ibmcloud.com/url/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "whoisology.com",
+        "searchstring": "https://whoisology.com/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "securityheaders.com",
+        "searchstring": "https://securityheaders.com/?followRedirects=on&q=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "wappalyzer.com",
+        "searchstring": "https://www.wappalyzer.com/lookup/%s/"
+    },
+    {
+        "category": "domain",
+        "provider": "whatcms.org",
+        "searchstring": "https://whatcms.org/?s=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "dnsspy.io",
+        "searchstring": "https://dnsspy.io/scan/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "dnsviz.net",
+        "searchstring": "https://dnsviz.net/d/%s/dnssec/"
+    },
+    {
+        "category": "domain",
+        "provider": "observatory.mozilla.org",
+        "searchstring": "https://observatory.mozilla.org/analyze/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "hunter.io",
+        "searchstring": "https://hunter.io/try/search/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "downforeveryoneorjustme.com",
+        "searchstring": "https://downforeveryoneorjustme.com/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "instantdomainsearch.com",
+        "searchstring": "https://instantdomainsearch.com/domain/extensions?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "buckets.grayhatwarfare.com",
+        "searchstring": "https://buckets.grayhatwarfare.com/files?keywords=%s"
+    },
+    {
+        "category": "string",
+        "provider": "github.com",
+        "searchstring": "https://github.com/search?type=code&q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "twitter.com",
+        "searchstring": "https://twitter.com/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "grep.app",
+        "searchstring": "https://grep.app/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "google.com",
+        "searchstring": "https://www.google.com/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "trends.google.com",
+        "searchstring": "https://trends.google.com/trends/explore?date=now%201-d&geo=NZ&hl=en-GB&q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "linkedin.com",
+        "searchstring": "https://www.linkedin.com/search/results/content/?keywords=%s"
+    },
+    {
+        "category": "email",
+        "provider": "whoisology",
+        "searchstring": "https://whoisology.com/%s"
+    },
+    {
+        "category": "bitcoin",
+        "provider": "bitcoinabuse.com",
+        "searchstring": "https://www.bitcoinabuse.com/reports/%s"
+    },
+    {
+        "category": "bitcoin",
+        "provider": "breadcrumbs.app",
+        "searchstring": "https://www.breadcrumbs.app/reports/%s"
+    },
+    {
+        "category": "string",
+        "provider": "publicwww.com",
+        "searchstring": "https://publicwww.com/websites/%s/"
+    },
+    {
+        "category": "string",
+        "provider": "ipfs-search.com",
+        "searchstring": "https://ipfs-search.com/#/search?q=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "pulsedive.com",
+        "searchstring": "https://pulsedive.com/indicator/?ioc=%s"
+    },
+    {
+        "category": "ip",
+        "provider": "pulsedive.com",
+        "searchstring": "https://pulsedive.com/indicator/?ioc=%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "breadcrumbs.app",
+        "searchstring": "https://www.breadcrumbs.app/reports/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "leakix.net",
+        "searchstring": "https://leakix.net/domain/%s"
+    },
+    {
+        "category": "string",
+        "provider": "news.google.com",
+        "searchstring": "https://news.google.com/search?hl=en-NZ&gl=NZ&ceid=NZ:en&q=%s"
+    },
+    {
+        "category": "ip",
+        "provider": "dehashed.com",
+        "searchstring": "https://www.dehashed.com/search?query=ip_address:%s"
+    },
+    {
+        "category": "email",
+        "provider": "dehashed.com",
+        "searchstring": "https://www.dehashed.com/search?query=email:%s"
+    },
+    {
+        "category": "domain",
+        "provider": "dehashed.com",
+        "searchstring": "https://www.dehashed.com/search?query=domain:%s"
+    },
+    {
+        "category": "email",
+        "provider": "intelx.io",
+        "searchstring": "https://intelx.io/?s=%s"
+    },
+    {
+        "category": "bitcoin",
+        "provider": "intelx.io",
+        "searchstring": "https://intelx.io/?s=%s"
+    },
+    {
+        "category": "string",
+        "provider": "intelx.io",
+        "searchstring": "https://intelx.io/?s=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "intelx.io",
+        "searchstring": "https://intelx.io/?s=%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "intelx.io",
+        "searchstring": "https://intelx.io/?s=%s"
+    },
+    {
+        "category": "string",
+        "provider": "web.archive.org",
+        "searchstring": "https://web.archive.org/web/20230000000000*/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "web.archive.org",
+        "searchstring": "https://web.archive.org/web/20230000000000*/%s"
+    },
+    {
+        "category": "string",
+        "provider": "usersearch.org",
+        "searchstring": "https://usersearch.org/results_advanced.php?URL_username=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "namechk.com",
+        "searchstring": "https://namechk.com/namechk-plugin-search-results/?n=%s"
+    },
+    {
+        "category": "string",
+        "provider": "checkusernames.com",
+        "searchstring": "https://checkusernames.com/?username=%s"
+    },
+    {
+        "category": "string",
+        "provider": "nitter.net",
+        "searchstring": "https://nitter.net/%s"
+    },
+    {
+        "category": "string",
+        "provider": "tiktok.com",
+        "searchstring": "https://www.tiktok.com/search?lang=en&q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "telegramdb.org",
+        "searchstring": "https://www.telegramdb.org/search?q=%s"
+    },
+    {
+        "category": "ip",
+        "provider": "browserleaks.com",
+        "searchstring": "https://browserleaks.com/ip/%s"
+    },
+    {
+        "category": "string",
+        "provider": "opensanctions.org",
+        "searchstring": "https://www.opensanctions.org/search/?q=%s"
+    },
+    {
+        "category": "email",
+        "provider": "thatsthem.com",
+        "searchstring": "https://thatsthem.com/email/%s"
+    },
+    {
+        "category": "email",
+        "provider": "epieos.com",
+        "searchstring": "https://epieos.com/?t=email&q=%s"
+    },
+    {
+        "category": "ip",
+        "provider": "criminalip.io",
+        "searchstring": "https://www.criminalip.io/en/asset/report/%s"
+    },
+    {
+        "category": "string",
+        "provider": "picuki.com",
+        "searchstring": "https://www.picuki.com/profile/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "analyzeid.com",
+        "searchstring": "https://analyzeid.com/id/%s"
+    },
+    {
+        "category": "string",
+        "provider": "discordservers.com",
+        "searchstring": "https://discordservers.com/search/%s"
+    },
+    {
+        "category": "string",
+        "provider": "discordhub.com",
+        "searchstring": "https://discordhub.com/user/search?user_search_bar=%s"
+    },
+    {
+        "category": "domain",
+        "provider": "visualsitemapper.com",
+        "searchstring": "http://www.visualsitemapper.com/map/%s"
+    },
+    {
+        "category": "bitcoin",
+        "provider": "blockchain.com",
+        "searchstring": "https://www.blockchain.com/explorer/addresses/btc/%s"
+    },
+    {
+        "category": "bitcoin",
+        "provider": "bitcoinwhoswho.com",
+        "searchstring": "https://www.bitcoinwhoswho.com/address/%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "etherscan.io",
+        "searchstring": "https://etherscan.io/address/%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "beaconcha.in",
+        "searchstring": "https://beaconcha.in/address/%s"
+    },
+    {
+        "category": "string",
+        "provider": "ahmia.fi",
+        "searchstring": "https://ahmia.fi/search/?q=%s"
+    },
+    {
+        "category": "url",
+        "provider": "web.archive.org",
+        "searchstring": "https://web.archive.org/web/20230000000000*/%s"
+    },
+    {
+        "category": "url",
+        "provider": "webcache.googleusercontent.com",
+        "searchstring": "http://webcache.googleusercontent.com/search?q=cache:%s"
+    },
+    {
+        "category": "url",
+        "provider": "archive.is",
+        "searchstring": "https://archive.is/%s"
+    },
+    {
+        "category": "string",
+        "provider": "urlscan.io",
+        "searchstring": "https://urlscan.io/search/#%s"
+    },
+    {
+        "category": "domain",
+        "provider": "google.com inurl",
+        "searchstring": "https://www.google.com/search?q=inurl%3A%22%s%22"
+    },
+    {
+        "category": "string",
+        "provider": "bing.com",
+        "searchstring": "https://www.bing.com/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "qwant.com",
+        "searchstring": "https://www.qwant.com/?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "swisscows.com",
+        "searchstring": "https://swisscows.com/en/web?query=%s"
+    },
+    {
+        "category": "string",
+        "provider": "duckduckgo.com",
+        "searchstring": "https://duckduckgo.com/?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "gibiru.com",
+        "searchstring": "https://gibiru.com/results.html?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "ask.com",
+        "searchstring": "https://www.ask.com/web?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "carrot2.org",
+        "searchstring": "https://search.carrot2.org/#/search/web/%s/folders"
+    },
+    {
+        "category": "string",
+        "provider": "searchcode.com",
+        "searchstring": "https://searchcode.com/?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "aol.com",
+        "searchstring": "https://search.aol.com/aol/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "yahoo.com",
+        "searchstring": "https://search.yahoo.com/search?p=%s"
+    },
+    {
+        "category": "string",
+        "provider": "entireweb.com",
+        "searchstring": "https://search.entireweb.com/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "mmnt.ru",
+        "searchstring": "https://www.mmnt.ru/int/get?st=%s"
+    }
+]
