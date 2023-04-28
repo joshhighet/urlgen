@@ -95,3 +95,4 @@ string,aol.com,https://search.aol.com/aol/search?q=%s
 string,yahoo.com,https://search.yahoo.com/search?p=%s
 string,entireweb.com,https://search.entireweb.com/search?q=%s
 string,mmnt.ru,https://www.mmnt.ru/int/get?st=%s
+string,tweettunnel.com,https://tweettunnel.com/%s
