@@ -6,14 +6,17 @@ there are a number of _categories_ of which adopted search engines have been pai
 
 ## search engines
 
-the file `urlgen.csv` is where all providers are added/configured. note the searchstring use of `%s` values. a simple example below;
+the file `urlgen.csv` is where all providers are added/configured. a simple example below;
 
-```csv
-category,provider,searchstring
-ip,shodan.io,https://www.shodan.io/host/%s
-domain,virustotal.com,https://www.virustotal.com/gui/domain/%s
-string,google.com,https://www.google.com/search?q=%s
-```
+| category | provider       | searchstring                         |
+|----------|----------------|--------------------------------------|
+| ip       | shodan.io      | `https://www.shodan.io/host/%s`        |
+| domain   | virustotal.com | `https://www.virustotal.com/gui/domain/%s` |
+| string   | google.com     | `https://www.google.com/search?q=%s`   |
+
+- **provider:** vanity name for a search engine
+- **searchstring:** the url used to construct a search query - noting the use of `%s`
+- **category:** corresponding category. new categories require definition within `categoryColors` of `script.js`
 
 ## contributing
 
