@@ -1,20 +1,25 @@
 * {
   box-sizing: border-box;
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 1rem 2rem;
+}
+
+h1.title {
+  margin: 0; /* Remove the default margin */
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 0;
   margin: 0;
   transition: background-color 0.3s ease-in-out;
   background-color: #f4f4f4;
-}
-.top-bar {
-  background: #000;
-  color: #fff;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .filters, #searchForm {
   padding: 20px 40px;
@@ -27,7 +32,7 @@ body {
   flex-direction: column;
   padding: 20px 40px;
 }
-h1, label {
+label {
   margin-bottom: 10px;
 }
 select, input[type="text"] {
@@ -121,4 +126,29 @@ button#themeToggle:focus {
 }
 .filter-item.active {
   opacity: 0.8;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+  0%, 100% {
+      transform: rotate(0);
+  }
+  20%, 60% {
+      transform: rotate(-25deg);
+  }
+  40%, 80% {
+      transform: rotate(10deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+      animation: none;
+  }
+  .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+  }
 }
