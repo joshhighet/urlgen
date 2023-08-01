@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: generate urlgen.json
         run: |
-          python3 docs/csv2json.py urlgen.csv docs/urlgen.json
+          python3 csv2json.py urlgen.csv docs/urlgen.json
       - name: save changes
         run: |
           git config user.name github-actions
