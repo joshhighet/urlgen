@@ -478,5 +478,20 @@
         "category": "string",
         "provider": "mmnt.ru",
         "searchstring": "https://www.mmnt.ru/int/get?st=%s"
+    },
+    {
+        "category": "string",
+        "provider": "tweettunnel.com",
+        "searchstring": "https://tweettunnel.com/%s"
+    },
+    {
+        "category": "string",
+        "provider": "dedigger.com",
+        "searchstring": "https://www.dedigger.com/index.html#gsc.tab=0&gsc.q=%s&gsc.sort="
+    },
+    {
+        "category": "string",
+        "provider": "telegago",
+        "searchstring": "https://cse.google.com/cse?q=+&cx=006368593537057042503:efxu7xprihg#gsc.tab=0&gsc.q=%20%s&gsc.sort=date"
     }
 ]
