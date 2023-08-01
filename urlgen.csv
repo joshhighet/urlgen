@@ -96,3 +96,5 @@ string,yahoo.com,https://search.yahoo.com/search?p=%s
 string,entireweb.com,https://search.entireweb.com/search?q=%s
 string,mmnt.ru,https://www.mmnt.ru/int/get?st=%s
 string,tweettunnel.com,https://tweettunnel.com/%s
+string,dedigger.com,https://www.dedigger.com/index.html#gsc.tab=0&gsc.q=%s&gsc.sort=
+string,telegago,https://cse.google.com/cse?q=+&cx=006368593537057042503:efxu7xprihg#gsc.tab=0&gsc.q=%20%s&gsc.sort=date
