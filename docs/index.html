@@ -34,15 +34,21 @@
 <body class="light-theme">
   <header>
     <h1>urlgen: the search engine engine</h1>
+    <button id="themeToggle" aria-label="Toggle dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
   </header>
   <div class="filters">
     <div id="categoryFilter"></div>
     <div class="filter-item">
-      <input type="text" id="providerFilter" placeholder="filter providers">
+      <input type="text" id="providerFilter" placeholder="Filter providers by name...">
     </div>
   </div>  
   <form id="searchForm">
-    <input type="text" id="searchInput" placeholder="enter searchterm">
+    <input type="text" id="searchInput" placeholder="Enter IP, domain, email, or hash to search...">
   </form>
   <div id="providerContainer"></div>
   <div id="loading" class="spinner hidden"></div>

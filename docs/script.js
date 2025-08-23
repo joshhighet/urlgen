@@ -8,14 +8,55 @@ const providerFilter = document.getElementById('providerFilter');
 let providers = [];
 let activeCategory = '';
 let categoryColors = {
-  "ip": "#ffd1dc",
-  "email": "#ffd6a5",
-  "bitcoin": "#caffbf",
-  "ethereum": "#bdb2ff",
-  "url": "#a0c4ff",
-  "domain": "#ffadad",
-  "string": "#ffc6ff"
+  "ip": "#dbeafe",
+  "email": "#fef3c7", 
+  "bitcoin": "#d1fae5",
+  "ethereum": "#e0e7ff",
+  "url": "#ddd6fe",
+  "domain": "#fce7f3",
+  "string": "#f3e8ff"
 };
+
+let darkCategoryColors = {
+  "ip": "#1e3a8a",
+  "email": "#92400e", 
+  "bitcoin": "#065f46",
+  "ethereum": "#3730a3",
+  "url": "#581c87",
+  "domain": "#86198f",
+  "string": "#6b21a8"
+};
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', function() {
+  const body = document.body;
+  const isDark = body.classList.contains('dark-theme');
+  
+  if (isDark) {
+    body.classList.remove('dark-theme');
+    body.classList.add('light-theme');
+    localStorage.setItem('theme', 'light');
+    updateCategoryColors(categoryColors);
+  } else {
+    body.classList.remove('light-theme');
+    body.classList.add('dark-theme');
+    localStorage.setItem('theme', 'dark');
+    updateCategoryColors(darkCategoryColors);
+  }
+});
+
+// Load saved theme or default to light
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.body.classList.add(savedTheme + '-theme');
+if (savedTheme === 'dark') {
+  categoryColors = darkCategoryColors;
+}
+
+function updateCategoryColors(colors) {
+  categoryColors = colors;
+  populateCategoryFilter();
+  displayProviders(activeCategory);
+}
 
 providerFilter.addEventListener('input', function() {
   const filter = providerFilter.value;
