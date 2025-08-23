@@ -106,3 +106,7 @@ string,tgstat,https://tgstat.com/search?q=%s
 string,osint.industries,https://osint.industries/search?q=%s
 string,opencorporates,https://opencorporates.com/companies?q=%s
 string,marinetraffic,https://www.marinetraffic.com/en/ais/index/search/all?keyword=%s
+ethereum,parsec eth,https://parsec.fi/eth/address/%s
+bitcoin,arkham intel - btc,https://intel.arkm.com/explorer/address/%s
+ethereum,arkham intel - eth,https://intel.arkm.com/explorer/address/%s
+ethereum,defined.fi,https://www.defined.fi/base/%s

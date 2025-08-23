@@ -22,3 +22,9 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git commit --all --message "𝚌𝚛𝚘𝚗𝚋𝚘𝚝" || echo "no changes to commit"
           git push
+      #- name: purge cloudflare cache
+      #  run: |
+      #    curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+      #      -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+      #      -H "Content-Type: application/json" \
+      #      --data '{"purge_everything":true}'
