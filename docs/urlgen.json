@@ -533,5 +533,25 @@
         "category": "string",
         "provider": "marinetraffic",
         "searchstring": "https://www.marinetraffic.com/en/ais/index/search/all?keyword=%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "parsec eth",
+        "searchstring": "https://parsec.fi/eth/address/%s"
+    },
+    {
+        "category": "bitcoin",
+        "provider": "arkham intel - btc",
+        "searchstring": "https://intel.arkm.com/explorer/address/%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "arkham intel - eth",
+        "searchstring": "https://intel.arkm.com/explorer/address/%s"
+    },
+    {
+        "category": "ethereum",
+        "provider": "defined.fi",
+        "searchstring": "https://www.defined.fi/base/%s"
     }
 ]
