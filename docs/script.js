@@ -84,14 +84,18 @@ applyTheme(initialTheme);
 // Listen for system theme changes (only if user hasn't manually set preference)
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
   if (!localStorage.getItem('theme')) {
-    applyTheme(e.matches ? 'dark' : 'light');
+    const newTheme = e.matches ? 'dark' : 'light';
+    applyTheme(newTheme);
+    setTimeout(() => {
+      highlightActiveCategory();
+    }, 10);
   }
 });
 
 function updateCategoryColors(colors) {
   categoryColors = colors;
   populateCategoryFilter();
-  displayProviders(activeCategory);
+  displayProviders(activeCategory, providerFilter.value);
 }
 
 providerFilter.addEventListener('input', function() {
