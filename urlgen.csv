@@ -65,7 +65,6 @@ string,tiktok.com,https://www.tiktok.com/search?lang=en&q=%s
 string,telegramdb.org,https://www.telegramdb.org/search?q=%s
 ip,browserleaks.com,https://browserleaks.com/ip/%s
 string,opensanctions.org,https://www.opensanctions.org/search/?q=%s
-email,thatsthem.com,https://thatsthem.com/email/%s
 email,epieos.com,https://epieos.com/?t=email&q=%s
 ip,criminalip.io,https://www.criminalip.io/en/asset/report/%s
 string,picuki.com,https://www.picuki.com/profile/%s
@@ -83,9 +82,13 @@ url,webcache.googleusercontent.com,http://webcache.googleusercontent.com/search?
 url,archive.is,https://archive.is/%s
 string,urlscan.io,https://urlscan.io/search/#%s
 domain,google.com inurl,https://www.google.com/search?q=inurl%3A%22%s%22
+domain,google.com site:,https://www.google.com/search?q=site:%s
+string,google.com filetype:pdf,https://www.google.com/search?q=%s+filetype:pdf
+string,google.com intitle:,https://www.google.com/search?q=intitle:%s
+domain,google.com related:,https://www.google.com/search?q=related:%s
+domain,google.com -site:,https://www.google.com/search?q=-site:%s+%s
 string,bing.com,https://www.bing.com/search?q=%s
 string,qwant.com,https://www.qwant.com/?q=%s
-string,swisscows.com,https://swisscows.com/en/web?query=%s
 string,duckduckgo.com,https://duckduckgo.com/?q=%s
 string,gibiru.com,https://gibiru.com/results.html?q=%s
 string,ask.com,https://www.ask.com/web?q=%s
@@ -98,3 +101,8 @@ string,mmnt.ru,https://www.mmnt.ru/int/get?st=%s
 string,tweettunnel.com,https://tweettunnel.com/%s
 string,dedigger.com,https://www.dedigger.com/index.html#gsc.tab=0&gsc.q=%s&gsc.sort=
 string,telegago,https://cse.google.com/cse?q=+&cx=006368593537057042503:efxu7xprihg#gsc.tab=0&gsc.q=%20%s&gsc.sort=date
+string,namechk,https://namechk.com/namechk-plugin-search-results/?n=%s
+string,tgstat,https://tgstat.com/search?q=%s
+string,osint.industries,https://osint.industries/search?q=%s
+string,opencorporates,https://opencorporates.com/companies?q=%s
+string,marinetraffic,https://www.marinetraffic.com/en/ais/index/search/all?keyword=%s

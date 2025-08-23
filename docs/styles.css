@@ -135,9 +135,7 @@ input[type="text"]::placeholder {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--spacing-lg);
-  padding: 0 var(--spacing-xl) var(--spacing-2xl);
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 200px;
 }
 
 .provider-card {
@@ -156,6 +154,16 @@ input[type="text"]::placeholder {
   font-size: 14px;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .provider-card:hover {
@@ -165,10 +173,25 @@ input[type="text"]::placeholder {
 }
 
 .provider-card:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
 }
-button#themeToggle {
-  padding: var(--spacing-sm) var(--spacing-lg);
+
+.provider-card.clicked {
+  animation: clickPulse 0.3s ease-out;
+}
+
+@keyframes clickPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); background-color: var(--primary-color); color: white; }
+  100% { transform: scale(1); }
+}
+.header-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+button#themeToggle, .help-button {
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--bg-primary);
@@ -179,9 +202,12 @@ button#themeToggle {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button#themeToggle:hover {
+button#themeToggle:hover, .help-button:hover {
   background: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
@@ -189,9 +215,50 @@ button#themeToggle:hover {
   box-shadow: var(--shadow-md);
 }
 
-button#themeToggle:focus {
+button#themeToggle:focus, .help-button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.help-tooltip {
+  position: fixed;
+  top: 80px;
+  right: var(--spacing-xl);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-lg);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.shortcut-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shortcut-key {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+}
+
+.shortcut-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
 }
 
 .spinner {
@@ -211,6 +278,16 @@ button#themeToggle:focus {
 }
 .hidden {
   display: none;
+}
+
+#providerContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  padding: 0 var(--spacing-xl) var(--spacing-2xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 200px;
 }
 #categoryFilter {
   display: flex;
@@ -248,6 +325,15 @@ button#themeToggle:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 1px var(--primary-color);
   font-weight: 600;
+}
+
+
+.provider-count {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .github-corner:hover .octo-arm {
@@ -296,8 +382,8 @@ button#themeToggle:focus {
   
   #providerContainer {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    padding: 0 var(--spacing-lg) var(--spacing-lg);
     gap: var(--spacing-md);
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
   }
   
   .provider-card {
