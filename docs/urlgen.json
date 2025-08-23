@@ -331,11 +331,6 @@
     },
     {
         "category": "email",
-        "provider": "thatsthem.com",
-        "searchstring": "https://thatsthem.com/email/%s"
-    },
-    {
-        "category": "email",
         "provider": "epieos.com",
         "searchstring": "https://epieos.com/?t=email&q=%s"
     },
@@ -420,6 +415,31 @@
         "searchstring": "https://www.google.com/search?q=inurl%3A%22%s%22"
     },
     {
+        "category": "domain",
+        "provider": "google.com site:",
+        "searchstring": "https://www.google.com/search?q=site:%s"
+    },
+    {
+        "category": "string",
+        "provider": "google.com filetype:pdf",
+        "searchstring": "https://www.google.com/search?q=%s+filetype:pdf"
+    },
+    {
+        "category": "string",
+        "provider": "google.com intitle:",
+        "searchstring": "https://www.google.com/search?q=intitle:%s"
+    },
+    {
+        "category": "domain",
+        "provider": "google.com related:",
+        "searchstring": "https://www.google.com/search?q=related:%s"
+    },
+    {
+        "category": "domain",
+        "provider": "google.com -site:",
+        "searchstring": "https://www.google.com/search?q=-site:%s+%s"
+    },
+    {
         "category": "string",
         "provider": "bing.com",
         "searchstring": "https://www.bing.com/search?q=%s"
@@ -428,11 +448,6 @@
         "category": "string",
         "provider": "qwant.com",
         "searchstring": "https://www.qwant.com/?q=%s"
-    },
-    {
-        "category": "string",
-        "provider": "swisscows.com",
-        "searchstring": "https://swisscows.com/en/web?query=%s"
     },
     {
         "category": "string",
@@ -493,5 +508,30 @@
         "category": "string",
         "provider": "telegago",
         "searchstring": "https://cse.google.com/cse?q=+&cx=006368593537057042503:efxu7xprihg#gsc.tab=0&gsc.q=%20%s&gsc.sort=date"
+    },
+    {
+        "category": "string",
+        "provider": "namechk",
+        "searchstring": "https://namechk.com/namechk-plugin-search-results/?n=%s"
+    },
+    {
+        "category": "string",
+        "provider": "tgstat",
+        "searchstring": "https://tgstat.com/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "osint.industries",
+        "searchstring": "https://osint.industries/search?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "opencorporates",
+        "searchstring": "https://opencorporates.com/companies?q=%s"
+    },
+    {
+        "category": "string",
+        "provider": "marinetraffic",
+        "searchstring": "https://www.marinetraffic.com/en/ais/index/search/all?keyword=%s"
     }
 ]
