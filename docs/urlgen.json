@@ -217,12 +217,12 @@
     {
         "category": "domain",
         "provider": "pulsedive.com",
-        "searchstring": "https://pulsedive.com/indicator/?ioc=%s"
+        "searchstring": "https://pulsedive.com/indicator/?ioc=%b64"
     },
     {
         "category": "ip",
         "provider": "pulsedive.com",
-        "searchstring": "https://pulsedive.com/indicator/?ioc=%s"
+        "searchstring": "https://pulsedive.com/indicator/?ioc=%b64"
     },
     {
         "category": "ethereum",
@@ -242,7 +242,7 @@
     {
         "category": "ip",
         "provider": "dehashed.com",
-        "searchstring": "https://www.dehashed.com/search?query=ip_address:%s"
+        "searchstring": "https://www.dehashed.com/search?query=ip_address:%s#breachCheck"
     },
     {
         "category": "email",
@@ -252,7 +252,7 @@
     {
         "category": "domain",
         "provider": "dehashed.com",
-        "searchstring": "https://www.dehashed.com/search?query=domain:%s"
+        "searchstring": "https://www.dehashed.com/search?query=domain:%s#breachCheck"
     },
     {
         "category": "email",
