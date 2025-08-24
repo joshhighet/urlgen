@@ -15,7 +15,7 @@ the file `urlgen.csv` is where all providers are added/configured. a simple exam
 | string   | google.com     | `https://www.google.com/search?q=%s`   |
 
 - **provider:** vanity name for a search engine
-- **searchstring:** the url used to construct a search query - noting the use of `%s`
+- **searchstring:** the url used to construct a search query - noting the use of `%s` or `%b64` as search values (use the latter when base64 encoding is required)
 - **category:** corresponding category. new categories require definition within `categoryColors` of `script.js`
 
 ## contributing

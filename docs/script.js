@@ -227,7 +227,11 @@ function displayProviders(category = '', filter = '') {
         const url = new URL(provider.searchstring);
         searchUrl = url.origin;
       } else {
-        searchUrl = provider.searchstring.replace('%s', encodeURIComponent(searchTerm));
+        if (provider.searchstring.includes('%b64')) {
+          searchUrl = provider.searchstring.replace('%b64', btoa(searchTerm));
+        } else {
+          searchUrl = provider.searchstring.replace('%s', encodeURIComponent(searchTerm));
+        }
       }
       
       window.open(searchUrl, '_blank');
