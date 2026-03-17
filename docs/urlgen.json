@@ -195,6 +195,11 @@
         "searchstring": "https://www.breadcrumbs.app/reports/%s"
     },
     {
+        "category": "bitcoin",
+        "provider": "blockchair.com",
+        "searchstring": "https://blockchair.com/bitcoin/transaction/%s"
+    },
+    {
         "category": "string",
         "provider": "publicwww.com",
         "searchstring": "https://publicwww.com/websites/%s/"
@@ -218,6 +223,11 @@
         "category": "domain",
         "provider": "leakix.net",
         "searchstring": "https://leakix.net/domain/%s"
+    },
+    {
+        "category": "domain",
+        "provider": "validin.com",
+        "searchstring": "https://app.validin.com/detail?find=%s#tab=host_pairs"
     },
     {
         "category": "string",
@@ -318,6 +328,11 @@
         "category": "ip",
         "provider": "criminalip.io",
         "searchstring": "https://www.criminalip.io/en/asset/report/%s"
+    },
+    {
+        "category": "ip",
+        "provider": "validin.com",
+        "searchstring": "https://app.validin.com/detail?find=%s&type=ip4#tab=resolutions"
     },
     {
         "category": "string",

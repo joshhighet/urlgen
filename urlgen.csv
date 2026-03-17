@@ -38,11 +38,13 @@ string,trends.google.com,https://trends.google.com/trends/explore?q=%s
 string,linkedin.com,https://www.linkedin.com/search/results/content/?keywords=%s
 email,whoisology,https://whoisology.com/%s
 bitcoin,breadcrumbs.app,https://www.breadcrumbs.app/reports/%s
+bitcoin,blockchair.com,https://blockchair.com/bitcoin/transaction/%s
 string,publicwww.com,https://publicwww.com/websites/%s/
 domain,pulsedive.com,https://pulsedive.com/indicator/?ioc=%b64
 ip,pulsedive.com,https://pulsedive.com/indicator/?ioc=%b64
 ethereum,breadcrumbs.app,https://www.breadcrumbs.app/reports/%s
 domain,leakix.net,https://leakix.net/domain/%s
+domain,validin.com,https://app.validin.com/detail?find=%s#tab=host_pairs
 string,news.google.com,https://news.google.com/search?q=%s
 ip,dehashed.com,https://www.dehashed.com/search?query=ip_address:%s#breachCheck
 email,dehashed.com,https://www.dehashed.com/search?query=email:%s
@@ -63,6 +65,7 @@ ip,browserleaks.com,https://browserleaks.com/ip/%s
 string,opensanctions.org,https://www.opensanctions.org/search/?q=%s
 email,epieos.com,https://epieos.com/?t=email&q=%s
 ip,criminalip.io,https://www.criminalip.io/en/asset/report/%s
+ip,validin.com,https://app.validin.com/detail?find=%s&type=ip4#tab=resolutions
 string,picuki.com,https://www.picuki.com/profile/%s
 domain,analyzeid.com,https://analyzeid.com/id/%s
 string,discordservers.com,https://discordservers.com/search/%s
