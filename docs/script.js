@@ -1,6 +1,3 @@
-const themeToggle = document.getElementById('themeToggle');
-const helpToggle = document.getElementById('helpToggle');
-const helpTooltip = document.getElementById('helpTooltip');
 const categoryFilter = document.getElementById('categoryFilter');
 const searchInput = document.getElementById('searchInput');
 const providerContainer = document.getElementById('providerContainer');
@@ -9,147 +6,24 @@ const providerFilter = document.getElementById('providerFilter');
 
 let providers = [];
 let activeCategory = '';
-let categoryColors = {
-  "ip": "#dbeafe",
-  "email": "#fef3c7", 
-  "bitcoin": "#d1fae5",
-  "ethereum": "#e0e7ff",
-  "url": "#ddd6fe",
-  "domain": "#fce7f3",
-  "string": "#f3e8ff"
+
+// Dark-appropriate category colors that work on #0d1117 backgrounds
+const categoryColors = {
+  "ip":       { bg: "rgba(30, 58, 138, 0.35)", border: "#1e3a8a", text: "#93c5fd" },
+  "email":    { bg: "rgba(146, 64, 14, 0.35)",  border: "#92400e", text: "#fcd34d" },
+  "bitcoin":  { bg: "rgba(6, 95, 70, 0.35)",    border: "#065f46", text: "#6ee7b7" },
+  "ethereum": { bg: "rgba(55, 48, 163, 0.35)",  border: "#3730a3", text: "#a5b4fc" },
+  "url":      { bg: "rgba(88, 28, 135, 0.35)",  border: "#581c87", text: "#c4b5fd" },
+  "domain":   { bg: "rgba(134, 25, 143, 0.35)", border: "#86198f", text: "#f0abfc" },
+  "string":   { bg: "rgba(107, 33, 168, 0.35)", border: "#6b21a8", text: "#d8b4fe" }
 };
-
-let darkCategoryColors = {
-  "ip": "#1e3a8a",
-  "email": "#92400e", 
-  "bitcoin": "#065f46",
-  "ethereum": "#3730a3",
-  "url": "#581c87",
-  "domain": "#86198f",
-  "string": "#6b21a8"
-};
-
-// Help tooltip toggle
-helpToggle.addEventListener('click', function(e) {
-  e.stopPropagation();
-  helpTooltip.classList.toggle('hidden');
-});
-
-// Close tooltip when clicking outside
-document.addEventListener('click', function() {
-  if (!helpTooltip.classList.contains('hidden')) {
-    helpTooltip.classList.add('hidden');
-  }
-});
-
-// Check system preference
-function getSystemPreference() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-// Apply theme based on preference or saved override
-function applyTheme(theme) {
-  const body = document.body;
-  body.classList.remove('light-theme', 'dark-theme');
-  body.classList.add(theme + '-theme');
-  
-  if (theme === 'dark') {
-    updateCategoryColors(darkCategoryColors);
-  } else {
-    updateCategoryColors(categoryColors);
-  }
-}
-
-// Theme toggle functionality
-themeToggle.addEventListener('click', function() {
-  const body = document.body;
-  const isDark = body.classList.contains('dark-theme');
-  
-  if (isDark) {
-    localStorage.setItem('theme', 'light');
-    applyTheme('light');
-  } else {
-    localStorage.setItem('theme', 'dark');
-    applyTheme('dark');
-  }
-});
-
-// Determine initial theme
-const savedTheme = localStorage.getItem('theme');
-const initialTheme = savedTheme || getSystemPreference();
-
-// Apply initial theme
-applyTheme(initialTheme);
-
-// Listen for system theme changes (only if user hasn't manually set preference)
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-  if (!localStorage.getItem('theme')) {
-    const newTheme = e.matches ? 'dark' : 'light';
-    applyTheme(newTheme);
-    setTimeout(() => {
-      highlightActiveCategory();
-    }, 10);
-  }
-});
-
-function updateCategoryColors(colors) {
-  categoryColors = colors;
-  populateCategoryFilter();
-  displayProviders(activeCategory, providerFilter.value);
-}
 
 providerFilter.addEventListener('input', function() {
-  const filter = providerFilter.value;
-  displayProviders(activeCategory, filter);
+  displayProviders(activeCategory, providerFilter.value);
 });
 
-// Keyboard shortcuts
-document.addEventListener('keydown', function(e) {
-  // Focus search input with '/'
-  if (e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
-    e.preventDefault();
-    searchInput.focus();
-    return;
-  }
-  
-  // Focus provider filter with Ctrl+F
-  if (e.key === 'f' && (e.ctrlKey || e.metaKey)) {
-    e.preventDefault();
-    providerFilter.focus();
-    return;
-  }
-  
-  // Clear filters with Backspace (when not in input)
-  if (e.key === 'Backspace' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
-    e.preventDefault();
-    // Clear all filters
-    activeCategory = '';
-    providerFilter.value = '';
-    displayProviders('');
-    highlightActiveCategory();
-    return;
-  }
-  
-  // Number keys 1-7 to select categories
-  if (e.key >= '1' && e.key <= '7' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
-    const categories = Object.keys(categoryColors);
-    const categoryIndex = parseInt(e.key) - 1;
-    if (categoryIndex < categories.length) {
-      activeCategory = categories[categoryIndex];
-      displayProviders(activeCategory, providerFilter.value);
-      highlightActiveCategory();
-    }
-    return;
-  }
-  
-  // Press '0' to show all
-  if (e.key === '0' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
-    activeCategory = '';
-    displayProviders('', providerFilter.value);
-    highlightActiveCategory();
-    return;
-  }
-});
+
+loading.style.display = 'block';
 
 fetch('urlgen.json')
   .then(response => response.json())
@@ -158,25 +32,28 @@ fetch('urlgen.json')
     loading.style.display = 'none';
     populateCategoryFilter();
     displayProviders();
+  })
+  .catch(() => {
+    loading.style.display = 'none';
+    providerContainer.innerHTML = '<p style="color:var(--text-secondary);padding:2rem">Failed to load providers.</p>';
   });
 
 function populateCategoryFilter() {
-  // Clear existing filters
   categoryFilter.innerHTML = '';
-  
-  // Add category filters
+
   for (const category in categoryColors) {
+    const colors = categoryColors[category];
     const filterItem = document.createElement('div');
     filterItem.className = 'filter-item';
     filterItem.textContent = category;
-    filterItem.style.backgroundColor = categoryColors[category];
+    filterItem.style.backgroundColor = colors.bg;
+    filterItem.style.borderColor = colors.border;
+    filterItem.style.color = colors.text;
     filterItem.addEventListener('click', function() {
       if (activeCategory === category) {
-        // If clicking the active category, clear it
         activeCategory = '';
         displayProviders('', providerFilter.value);
       } else {
-        // Set new active category
         activeCategory = category;
         displayProviders(category, providerFilter.value);
       }
@@ -199,44 +76,48 @@ function highlightActiveCategory() {
 
 function displayProviders(category = '', filter = '') {
   const providerCount = document.getElementById('providerCount');
-  
+
   providerContainer.innerHTML = '';
-  const filteredProviders = providers.filter(p => (!category || p.category === category) && (!filter || p.provider.toLowerCase().includes(filter.toLowerCase())));
-  
-  // Update count
+  const filteredProviders = providers.filter(p =>
+    (!category || p.category === category) &&
+    (!filter || p.provider.toLowerCase().includes(filter.toLowerCase()))
+  );
+
   if (providers.length > 0) {
     const totalCount = providers.length;
     const currentCount = filteredProviders.length;
-    providerCount.textContent = currentCount === totalCount 
-      ? `${totalCount} providers` 
+    providerCount.textContent = currentCount === totalCount
+      ? `${totalCount} providers`
       : `${currentCount} of ${totalCount} providers`;
   }
-  
+
   filteredProviders.forEach((provider, index) => {
+    const colors = categoryColors[provider.category] || { bg: 'var(--bg-secondary)', border: 'var(--border)', text: 'var(--text-primary)' };
     const card = document.createElement('div');
     card.className = 'provider-card';
     card.textContent = provider.provider;
-    card.style.backgroundColor = categoryColors[provider.category];
+    card.style.backgroundColor = colors.bg;
+    card.style.borderColor = colors.border;
+    card.style.color = colors.text;
     card.style.animationDelay = `${index * 0.02}s`;
     card.onclick = function() {
       const searchTerm = searchInput.value.trim();
       let searchUrl;
-      
+
       if (searchTerm === '') {
-        // Extract just the root domain
         const url = new URL(provider.searchstring);
         searchUrl = url.origin;
       } else {
         if (provider.searchstring.includes('%b64')) {
           searchUrl = provider.searchstring.replace('%b64', btoa(searchTerm));
         } else {
-          searchUrl = provider.searchstring.replace('%s', encodeURIComponent(searchTerm));
+          searchUrl = provider.searchstring.replaceAll('%s', encodeURIComponent(searchTerm));
         }
       }
-      
+
       window.open(searchUrl, '_blank');
     };
-    
+
     providerContainer.appendChild(card);
   });
 }

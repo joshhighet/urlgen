@@ -24,7 +24,6 @@ domain,whoisology.com,https://whoisology.com/%s
 domain,securityheaders.com,https://securityheaders.com/?followRedirects=on&q=%s
 domain,wappalyzer.com,https://www.wappalyzer.com/lookup/%s/
 domain,whatcms.org,https://whatcms.org/?s=%s
-domain,dnsspy.io,https://dnsspy.io/scan/%s
 domain,dnsviz.net,https://dnsviz.net/d/%s/dnssec/
 domain,observatory.mozilla.org,https://observatory.mozilla.org/analyze/%s
 domain,hunter.io,https://hunter.io/try/search/%s
@@ -35,18 +34,16 @@ string,github.com,https://github.com/search?type=code&q=%s
 string,twitter.com,https://twitter.com/search?q=%s
 string,grep.app,https://grep.app/search?q=%s
 string,google.com,https://www.google.com/search?q=%s
-string,trends.google.com,https://trends.google.com/trends/explore?date=now%201-d&geo=NZ&hl=en-GB&q=%s
+string,trends.google.com,https://trends.google.com/trends/explore?q=%s
 string,linkedin.com,https://www.linkedin.com/search/results/content/?keywords=%s
 email,whoisology,https://whoisology.com/%s
-bitcoin,bitcoinabuse.com,https://www.bitcoinabuse.com/reports/%s
 bitcoin,breadcrumbs.app,https://www.breadcrumbs.app/reports/%s
 string,publicwww.com,https://publicwww.com/websites/%s/
-string,ipfs-search.com,https://ipfs-search.com/#/search?q=%s
 domain,pulsedive.com,https://pulsedive.com/indicator/?ioc=%b64
 ip,pulsedive.com,https://pulsedive.com/indicator/?ioc=%b64
 ethereum,breadcrumbs.app,https://www.breadcrumbs.app/reports/%s
 domain,leakix.net,https://leakix.net/domain/%s
-string,news.google.com,https://news.google.com/search?hl=en-NZ&gl=NZ&ceid=NZ:en&q=%s
+string,news.google.com,https://news.google.com/search?q=%s
 ip,dehashed.com,https://www.dehashed.com/search?query=ip_address:%s#breachCheck
 email,dehashed.com,https://www.dehashed.com/search?query=email:%s
 domain,dehashed.com,https://www.dehashed.com/search?query=domain:%s#breachCheck
@@ -60,7 +57,6 @@ domain,web.archive.org,https://web.archive.org/web/20230000000000*/%s
 string,usersearch.org,https://usersearch.org/results_advanced.php?URL_username=%s
 domain,namechk.com,https://namechk.com/namechk-plugin-search-results/?n=%s
 string,checkusernames.com,https://checkusernames.com/?username=%s
-string,nitter.net,https://nitter.net/%s
 string,tiktok.com,https://www.tiktok.com/search?lang=en&q=%s
 string,telegramdb.org,https://www.telegramdb.org/search?q=%s
 ip,browserleaks.com,https://browserleaks.com/ip/%s
@@ -70,15 +66,13 @@ ip,criminalip.io,https://www.criminalip.io/en/asset/report/%s
 string,picuki.com,https://www.picuki.com/profile/%s
 domain,analyzeid.com,https://analyzeid.com/id/%s
 string,discordservers.com,https://discordservers.com/search/%s
-string,discordhub.com,https://discordhub.com/user/search?user_search_bar=%s
-domain,visualsitemapper.com,http://www.visualsitemapper.com/map/%s
+domain,visualsitemapper.com,https://www.visualsitemapper.com/map/%s
 bitcoin,blockchain.com,https://www.blockchain.com/explorer/addresses/btc/%s
 bitcoin,bitcoinwhoswho.com,https://www.bitcoinwhoswho.com/address/%s
 ethereum,etherscan.io,https://etherscan.io/address/%s
 ethereum,beaconcha.in,https://beaconcha.in/address/%s
 string,ahmia.fi,https://ahmia.fi/search/?q=%s
 url,web.archive.org,https://web.archive.org/web/20230000000000*/%s
-url,webcache.googleusercontent.com,http://webcache.googleusercontent.com/search?q=cache:%s
 url,archive.is,https://archive.is/%s
 string,urlscan.io,https://urlscan.io/search/#%s
 domain,google.com inurl,https://www.google.com/search?q=inurl%3A%22%s%22
@@ -86,19 +80,16 @@ domain,google.com site:,https://www.google.com/search?q=site:%s
 string,google.com filetype:pdf,https://www.google.com/search?q=%s+filetype:pdf
 string,google.com intitle:,https://www.google.com/search?q=intitle:%s
 domain,google.com related:,https://www.google.com/search?q=related:%s
-domain,google.com -site:,https://www.google.com/search?q=-site:%s+%s
+domain,google.com -site:,https://www.google.com/search?q=-site:%s
 string,bing.com,https://www.bing.com/search?q=%s
 string,qwant.com,https://www.qwant.com/?q=%s
 string,duckduckgo.com,https://duckduckgo.com/?q=%s
 string,gibiru.com,https://gibiru.com/results.html?q=%s
-string,ask.com,https://www.ask.com/web?q=%s
 string,carrot2.org,https://search.carrot2.org/#/search/web/%s/folders
 string,searchcode.com,https://searchcode.com/?q=%s
-string,aol.com,https://search.aol.com/aol/search?q=%s
 string,yahoo.com,https://search.yahoo.com/search?p=%s
 string,entireweb.com,https://search.entireweb.com/search?q=%s
 string,mmnt.ru,https://www.mmnt.ru/int/get?st=%s
-string,tweettunnel.com,https://tweettunnel.com/%s
 string,dedigger.com,https://www.dedigger.com/index.html#gsc.tab=0&gsc.q=%s&gsc.sort=
 string,telegago,https://cse.google.com/cse?q=+&cx=006368593537057042503:efxu7xprihg#gsc.tab=0&gsc.q=%20%s&gsc.sort=date
 string,namechk,https://namechk.com/namechk-plugin-search-results/?n=%s

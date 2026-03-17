@@ -126,11 +126,6 @@
     },
     {
         "category": "domain",
-        "provider": "dnsspy.io",
-        "searchstring": "https://dnsspy.io/scan/%s"
-    },
-    {
-        "category": "domain",
         "provider": "dnsviz.net",
         "searchstring": "https://dnsviz.net/d/%s/dnssec/"
     },
@@ -182,7 +177,7 @@
     {
         "category": "string",
         "provider": "trends.google.com",
-        "searchstring": "https://trends.google.com/trends/explore?date=now%201-d&geo=NZ&hl=en-GB&q=%s"
+        "searchstring": "https://trends.google.com/trends/explore?q=%s"
     },
     {
         "category": "string",
@@ -196,11 +191,6 @@
     },
     {
         "category": "bitcoin",
-        "provider": "bitcoinabuse.com",
-        "searchstring": "https://www.bitcoinabuse.com/reports/%s"
-    },
-    {
-        "category": "bitcoin",
         "provider": "breadcrumbs.app",
         "searchstring": "https://www.breadcrumbs.app/reports/%s"
     },
@@ -208,11 +198,6 @@
         "category": "string",
         "provider": "publicwww.com",
         "searchstring": "https://publicwww.com/websites/%s/"
-    },
-    {
-        "category": "string",
-        "provider": "ipfs-search.com",
-        "searchstring": "https://ipfs-search.com/#/search?q=%s"
     },
     {
         "category": "domain",
@@ -237,7 +222,7 @@
     {
         "category": "string",
         "provider": "news.google.com",
-        "searchstring": "https://news.google.com/search?hl=en-NZ&gl=NZ&ceid=NZ:en&q=%s"
+        "searchstring": "https://news.google.com/search?q=%s"
     },
     {
         "category": "ip",
@@ -306,11 +291,6 @@
     },
     {
         "category": "string",
-        "provider": "nitter.net",
-        "searchstring": "https://nitter.net/%s"
-    },
-    {
-        "category": "string",
         "provider": "tiktok.com",
         "searchstring": "https://www.tiktok.com/search?lang=en&q=%s"
     },
@@ -355,14 +335,9 @@
         "searchstring": "https://discordservers.com/search/%s"
     },
     {
-        "category": "string",
-        "provider": "discordhub.com",
-        "searchstring": "https://discordhub.com/user/search?user_search_bar=%s"
-    },
-    {
         "category": "domain",
         "provider": "visualsitemapper.com",
-        "searchstring": "http://www.visualsitemapper.com/map/%s"
+        "searchstring": "https://www.visualsitemapper.com/map/%s"
     },
     {
         "category": "bitcoin",
@@ -393,11 +368,6 @@
         "category": "url",
         "provider": "web.archive.org",
         "searchstring": "https://web.archive.org/web/20230000000000*/%s"
-    },
-    {
-        "category": "url",
-        "provider": "webcache.googleusercontent.com",
-        "searchstring": "http://webcache.googleusercontent.com/search?q=cache:%s"
     },
     {
         "category": "url",
@@ -437,7 +407,7 @@
     {
         "category": "domain",
         "provider": "google.com -site:",
-        "searchstring": "https://www.google.com/search?q=-site:%s+%s"
+        "searchstring": "https://www.google.com/search?q=-site:%s"
     },
     {
         "category": "string",
@@ -461,11 +431,6 @@
     },
     {
         "category": "string",
-        "provider": "ask.com",
-        "searchstring": "https://www.ask.com/web?q=%s"
-    },
-    {
-        "category": "string",
         "provider": "carrot2.org",
         "searchstring": "https://search.carrot2.org/#/search/web/%s/folders"
     },
@@ -473,11 +438,6 @@
         "category": "string",
         "provider": "searchcode.com",
         "searchstring": "https://searchcode.com/?q=%s"
-    },
-    {
-        "category": "string",
-        "provider": "aol.com",
-        "searchstring": "https://search.aol.com/aol/search?q=%s"
     },
     {
         "category": "string",
@@ -493,11 +453,6 @@
         "category": "string",
         "provider": "mmnt.ru",
         "searchstring": "https://www.mmnt.ru/int/get?st=%s"
-    },
-    {
-        "category": "string",
-        "provider": "tweettunnel.com",
-        "searchstring": "https://tweettunnel.com/%s"
     },
     {
         "category": "string",

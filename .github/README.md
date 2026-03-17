@@ -1,8 +1,8 @@
 # urlgen
 
-urlgen is a search utility to help make targetted searches faster. it will take in a search term and can provide encoded deeplinks to run the search within the given platform.
+urlgen is a search utility to help make targeted searches faster. it will take in a search term and can provide encoded deeplinks to run the search within the given platform.
 
-there are a number of _categories_ of which adopted search engines have been paired against such as various network elements, email addresses, various cryptocurrencies and more.
+there are a number of _categories_ which adopted search engines have been paired against such as various network elements, email addresses, various cryptocurrencies and more.
 
 ## search engines
 
