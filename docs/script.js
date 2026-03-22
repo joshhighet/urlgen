@@ -70,8 +70,18 @@ searchClear.addEventListener('click', function() {
   highlightActiveCategory();
 });
 
+const providerClear = document.getElementById('providerClear');
+
 providerFilter.addEventListener('input', function() {
+  providerClear.style.display = providerFilter.value ? '' : 'none';
   displayProviders(activeCategory, providerFilter.value);
+});
+
+providerClear.addEventListener('click', function() {
+  providerFilter.value = '';
+  providerClear.style.display = 'none';
+  displayProviders(activeCategory, '');
+  providerFilter.focus();
 });
 
 // Load data
