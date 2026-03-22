@@ -18,8 +18,28 @@ const categoryColors = {
   "string":   { bg: "rgba(107, 33, 168, 0.35)", border: "#6b21a8", text: "#d8b4fe" }
 };
 
+const providerClear = document.getElementById('providerClear');
+const searchClear = document.getElementById('searchClear');
+
+// Show/hide clear buttons on input
 providerFilter.addEventListener('input', function() {
+  providerClear.style.display = providerFilter.value ? '' : 'none';
   displayProviders(activeCategory, providerFilter.value);
+});
+
+searchInput.addEventListener('input', function() {
+  searchClear.style.display = searchInput.value ? '' : 'none';
+});
+
+providerClear.addEventListener('click', function() {
+  providerFilter.value = '';
+  providerClear.style.display = 'none';
+  displayProviders(activeCategory, '');
+});
+
+searchClear.addEventListener('click', function() {
+  searchInput.value = '';
+  searchClear.style.display = 'none';
 });
 
 

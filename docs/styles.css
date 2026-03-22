@@ -1,5 +1,6 @@
 /* ── reset & securitytools design tokens ──────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
 
 :root {
   --bg-primary:    #0d1117;
@@ -49,16 +50,8 @@ body {
   background: linear-gradient(180deg, #13191f 0%, var(--bg-primary) 100%);
   border-bottom: 1px solid var(--border);
   padding: 2rem 1.5rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(12px);
+  text-align: center;
 }
-
-.header-inner { flex: 1; }
 
 .site-header h1 {
   font-size: 1.8rem;
@@ -162,18 +155,58 @@ input[type="text"]:focus {
   box-shadow: 0 0 0 3px var(--accent-dim);
 }
 
+/* ── Search containers (matching securitytools) ──────────────── */
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.search-container input[type="text"] {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  border-radius: 3px;
+  transition: color 0.15s;
+}
+
+.search-clear:hover { color: var(--text-primary); }
+
 /* ── Search form ─────────────────────────────────────────────── */
 #searchForm {
   margin-bottom: 1.25rem;
 }
 
-#searchForm input[type="text"] {
+.search-main {
   max-width: 600px;
   margin: 0 auto;
-  display: block;
+}
+
+#searchForm input[type="text"] {
   font-size: 1rem;
   height: 48px;
-  padding: 0 1rem;
   font-family: 'SF Mono', Monaco, 'Courier New', monospace;
   letter-spacing: -0.25px;
 }

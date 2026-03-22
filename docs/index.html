@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="https://github.com/joshhighet.png">
-  <meta property="og:title" content="urlgen: the search engine engine" />
+  <meta property="og:title" content="urlgen" />
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e63946">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
@@ -31,10 +31,8 @@
 
   <!-- Header -->
   <header class="site-header">
-    <div class="header-inner">
-      <h1><span class="accent">//</span> urlgen</h1>
-      <p class="tagline">the search engine engine</p>
-    </div>
+    <h1><span class="accent">//</span> urlgen</h1>
+    <p class="tagline">the search engine engine</p>
   </header>
 
 
@@ -43,14 +41,26 @@
     <div class="filters">
       <div id="categoryFilter"></div>
       <div class="filter-row">
-        <input type="text" id="providerFilter" placeholder="Filter providers by name...">
+        <div class="search-container">
+          <i class="fas fa-filter search-icon"></i>
+          <input type="text" id="providerFilter" placeholder="Filter providers by name...">
+          <button class="search-clear" id="providerClear" aria-label="clear filter" style="display:none">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
         <div id="providerCount" class="provider-count"></div>
       </div>
     </div>
 
     <!-- Search -->
     <form id="searchForm">
-      <input type="text" id="searchInput" placeholder="Enter IP, domain, email, or hash to search...">
+      <div class="search-container search-main">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Enter IP, domain, email, or hash to search...">
+        <button type="button" class="search-clear" id="searchClear" aria-label="clear search" style="display:none">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </form>
 
     <!-- Provider grid -->
