@@ -119,7 +119,7 @@ function displayProviders(category = '', filter = '') {
       : filtered.length + ' of ' + providers.length;
   }
 
-  filtered.forEach((provider, i) => {
+  filtered.forEach((provider) => {
     const c = categoryColors[provider.category] || { bg: 'var(--bg-secondary)', border: 'var(--border)', text: 'var(--text-primary)' };
     const card = document.createElement('div');
     card.className = 'provider-card';
@@ -130,7 +130,6 @@ function displayProviders(category = '', filter = '') {
     card.style.backgroundColor = c.bg;
     card.style.borderColor = c.border;
     card.style.color = c.text;
-    card.style.animationDelay = `${i * 0.02}s`;
     card.onclick = function() {
       const term = searchInput.value.trim();
       let url;

@@ -243,6 +243,7 @@ input[type="text"]:focus {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 0.75rem;
   min-height: 200px;
+  align-content: start;
 }
 
 .provider-card {
