@@ -1,13 +1,17 @@
 const categoryFilter = document.getElementById('categoryFilter');
 const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+const providerFilter = document.getElementById('providerFilter');
 const providerContainer = document.getElementById('providerContainer');
 const loading = document.getElementById('loading');
-const providerFilter = document.getElementById('providerFilter');
+const statsBar = document.getElementById('statsBar');
+const statProviders = document.getElementById('statProviders');
+const statCategories = document.getElementById('statCategories');
+const providerCount = document.getElementById('providerCount');
 
 let providers = [];
 let activeCategory = '';
 
-// Dark-appropriate category colors that work on #0d1117 backgrounds
 const categoryColors = {
   "ip":       { bg: "rgba(30, 58, 138, 0.35)", border: "#1e3a8a", text: "#93c5fd" },
   "email":    { bg: "rgba(146, 64, 14, 0.35)",  border: "#92400e", text: "#fcd34d" },
@@ -18,126 +22,127 @@ const categoryColors = {
   "string":   { bg: "rgba(107, 33, 168, 0.35)", border: "#6b21a8", text: "#d8b4fe" }
 };
 
-const providerClear = document.getElementById('providerClear');
-const searchClear = document.getElementById('searchClear');
-
-// Show/hide clear buttons on input
-providerFilter.addEventListener('input', function() {
-  providerClear.style.display = providerFilter.value ? '' : 'none';
-  displayProviders(activeCategory, providerFilter.value);
-});
+const searchHint = document.getElementById('searchHint');
 
 searchInput.addEventListener('input', function() {
-  searchClear.style.display = searchInput.value ? '' : 'none';
-});
-
-providerClear.addEventListener('click', function() {
-  providerFilter.value = '';
-  providerClear.style.display = 'none';
-  displayProviders(activeCategory, '');
+  const hasValue = searchInput.value.length > 0;
+  searchClear.style.display = hasValue ? '' : 'none';
+  searchHint.style.display = hasValue ? 'none' : '';
 });
 
 searchClear.addEventListener('click', function() {
   searchInput.value = '';
   searchClear.style.display = 'none';
+  searchHint.style.display = '';
+  searchInput.focus();
 });
 
+providerFilter.addEventListener('input', function() {
+  displayProviders(activeCategory, providerFilter.value);
+});
 
+// Load data
 loading.style.display = 'block';
 
 fetch('urlgen.json')
-  .then(response => response.json())
+  .then(r => r.json())
   .then(data => {
     providers = data;
     loading.style.display = 'none';
+
+    const cats = new Set(providers.map(p => p.category));
+    statProviders.textContent = providers.length;
+    statCategories.textContent = cats.size;
+    statsBar.style.display = '';
+
     populateCategoryFilter();
     displayProviders();
   })
   .catch(() => {
     loading.style.display = 'none';
-    providerContainer.innerHTML = '<p style="color:var(--text-secondary);padding:2rem">Failed to load providers.</p>';
+    providerContainer.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:2rem">failed to load providers.</p>';
   });
 
 function populateCategoryFilter() {
   categoryFilter.innerHTML = '';
 
-  for (const category in categoryColors) {
-    const colors = categoryColors[category];
-    const filterItem = document.createElement('div');
-    filterItem.className = 'filter-item';
-    filterItem.textContent = category;
-    filterItem.style.backgroundColor = colors.bg;
-    filterItem.style.borderColor = colors.border;
-    filterItem.style.color = colors.text;
-    filterItem.addEventListener('click', function() {
-      if (activeCategory === category) {
-        activeCategory = '';
-        displayProviders('', providerFilter.value);
-      } else {
-        activeCategory = category;
-        displayProviders(category, providerFilter.value);
-      }
+  // "all" chip
+  const all = document.createElement('span');
+  all.className = 'cat-chip active';
+  all.textContent = 'all';
+  all.style.backgroundColor = 'var(--bg-tertiary)';
+  all.style.color = 'var(--text-secondary)';
+  all.addEventListener('click', function() {
+    activeCategory = '';
+    displayProviders('', providerFilter.value);
+    highlightActiveCategory();
+  });
+  categoryFilter.appendChild(all);
+
+  for (const cat in categoryColors) {
+    const c = categoryColors[cat];
+    const chip = document.createElement('span');
+    chip.className = 'cat-chip';
+    chip.textContent = cat;
+    chip.dataset.category = cat;
+    chip.style.backgroundColor = c.bg;
+    chip.style.color = c.text;
+    chip.addEventListener('click', function() {
+      activeCategory = activeCategory === cat ? '' : cat;
+      displayProviders(activeCategory, providerFilter.value);
       highlightActiveCategory();
     });
-    categoryFilter.appendChild(filterItem);
+    categoryFilter.appendChild(chip);
   }
 }
 
 function highlightActiveCategory() {
-  const filterItems = document.querySelectorAll('#categoryFilter .filter-item');
-  filterItems.forEach(item => {
-    if (item.textContent === activeCategory) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
+  document.querySelectorAll('#categoryFilter .cat-chip').forEach(chip => {
+    const cat = chip.dataset.category || '';
+    const isActive = (activeCategory === '' && cat === '') || cat === activeCategory;
+    chip.classList.toggle('active', isActive);
   });
 }
 
 function displayProviders(category = '', filter = '') {
-  const providerCount = document.getElementById('providerCount');
-
   providerContainer.innerHTML = '';
-  const filteredProviders = providers.filter(p =>
+
+  const filtered = providers.filter(p =>
     (!category || p.category === category) &&
     (!filter || p.provider.toLowerCase().includes(filter.toLowerCase()))
   );
 
+  // Update inline count
   if (providers.length > 0) {
-    const totalCount = providers.length;
-    const currentCount = filteredProviders.length;
-    providerCount.textContent = currentCount === totalCount
-      ? `${totalCount} providers`
-      : `${currentCount} of ${totalCount} providers`;
+    providerCount.textContent = filtered.length === providers.length
+      ? ''
+      : filtered.length + ' of ' + providers.length;
   }
 
-  filteredProviders.forEach((provider, index) => {
-    const colors = categoryColors[provider.category] || { bg: 'var(--bg-secondary)', border: 'var(--border)', text: 'var(--text-primary)' };
+  filtered.forEach((provider, i) => {
+    const c = categoryColors[provider.category] || { bg: 'var(--bg-secondary)', border: 'var(--border)', text: 'var(--text-primary)' };
     const card = document.createElement('div');
     card.className = 'provider-card';
-    card.textContent = provider.provider;
-    card.style.backgroundColor = colors.bg;
-    card.style.borderColor = colors.border;
-    card.style.color = colors.text;
-    card.style.animationDelay = `${index * 0.02}s`;
+    const label = document.createElement('span');
+    label.textContent = provider.provider;
+    card.appendChild(label);
+    card.title = provider.provider;
+    card.style.backgroundColor = c.bg;
+    card.style.borderColor = c.border;
+    card.style.color = c.text;
+    card.style.animationDelay = `${i * 0.02}s`;
     card.onclick = function() {
-      const searchTerm = searchInput.value.trim();
-      let searchUrl;
-
-      if (searchTerm === '') {
-        const url = new URL(provider.searchstring);
-        searchUrl = url.origin;
+      const term = searchInput.value.trim();
+      let url;
+      if (term === '') {
+        url = new URL(provider.searchstring).origin;
+      } else if (provider.searchstring.includes('%b64')) {
+        url = provider.searchstring.replace('%b64', btoa(term));
       } else {
-        if (provider.searchstring.includes('%b64')) {
-          searchUrl = provider.searchstring.replace('%b64', btoa(searchTerm));
-        } else {
-          searchUrl = provider.searchstring.replaceAll('%s', encodeURIComponent(searchTerm));
-        }
+        url = provider.searchstring.replaceAll('%s', encodeURIComponent(term));
       }
-
-      window.open(searchUrl, '_blank');
+      window.open(url, '_blank');
     };
-
     providerContainer.appendChild(card);
   });
 }
