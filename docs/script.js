@@ -14,6 +14,7 @@ const providerCount = document.getElementById('providerCount');
 let providers = [];
 let activeCategory = '';
 let magicEnabled = true;
+let noTermWarnedAt = 0;
 
 const categoryColors = {
   "ip":       { bg: "rgba(30, 58, 138, 0.35)", border: "#1e3a8a", text: "#93c5fd" },
@@ -32,6 +33,18 @@ magicToggle.addEventListener('click', function() {
   magicEnabled = !magicEnabled;
   magicToggle.classList.toggle('active', magicEnabled);
 });
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('toast-visible'));
+  setTimeout(() => {
+    t.classList.remove('toast-visible');
+    t.addEventListener('transitionend', () => t.remove());
+  }, 4000);
+}
 
 function detectCategory(term) {
   if (!term) return '';
@@ -175,10 +188,25 @@ function displayProviders(category = '', filter = '') {
     card.style.color = c.text;
     card.onclick = function() {
       const term = searchInput.value.trim();
+      if (!term) {
+        const now = Date.now();
+        if (now - noTermWarnedAt < 3000) {
+          window.open(new URL(provider.searchstring).origin, '_blank');
+          return;
+        }
+        noTermWarnedAt = now;
+        searchInput.classList.remove('input-flash');
+        void searchInput.offsetWidth;
+        searchInput.classList.add('input-flash');
+        searchInput.focus();
+        if (!localStorage.getItem('urlgen_tip_seen')) {
+          localStorage.setItem('urlgen_tip_seen', '1');
+          showToast('enter a search term first — click again to visit the site directly');
+        }
+        return;
+      }
       let url;
-      if (term === '') {
-        url = new URL(provider.searchstring).origin;
-      } else if (provider.searchstring.includes('%b64')) {
+      if (provider.searchstring.includes('%b64')) {
         url = provider.searchstring.replace('%b64', btoa(term));
       } else {
         url = provider.searchstring.replaceAll('%s', encodeURIComponent(term));
