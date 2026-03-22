@@ -61,6 +61,9 @@
     <!-- Toolbar: categories + provider filter -->
     <div class="toolbar">
       <div class="toolbar-cats" id="categoryFilter"></div>
+      <button class="magic-toggle active" id="magicToggle" title="auto-detect input type">
+        <i class="fas fa-wand-magic-sparkles"></i> magic
+      </button>
       <div class="toolbar-filter">
         <i class="fas fa-filter toolbar-filter-icon"></i>
         <input type="text" id="providerFilter" placeholder="filter providers..." />
@@ -78,6 +81,6 @@
     <a href="https://github.com/joshhighet/urlgen" target="_blank" rel="noopener">joshhighet/urlgen</a>
   </footer>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

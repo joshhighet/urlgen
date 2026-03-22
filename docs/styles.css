@@ -203,6 +203,35 @@ input[type="text"]:focus {
   border-color: currentColor;
 }
 
+.magic-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.magic-toggle.active {
+  opacity: 1;
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.magic-toggle:hover {
+  opacity: 0.85;
+}
+
 /* Provider filter — compact inline input */
 .toolbar-filter {
   position: relative;

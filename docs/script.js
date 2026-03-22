@@ -1,3 +1,5 @@
+import { extractIOC } from 'https://esm.sh/ioc-extractor@8';
+
 const categoryFilter = document.getElementById('categoryFilter');
 const searchInput = document.getElementById('searchInput');
 const searchClear = document.getElementById('searchClear');
@@ -11,6 +13,7 @@ const providerCount = document.getElementById('providerCount');
 
 let providers = [];
 let activeCategory = '';
+let magicEnabled = true;
 
 const categoryColors = {
   "ip":       { bg: "rgba(30, 58, 138, 0.35)", border: "#1e3a8a", text: "#93c5fd" },
@@ -23,11 +26,38 @@ const categoryColors = {
 };
 
 const searchHint = document.getElementById('searchHint');
+const magicToggle = document.getElementById('magicToggle');
+
+magicToggle.addEventListener('click', function() {
+  magicEnabled = !magicEnabled;
+  magicToggle.classList.toggle('active', magicEnabled);
+});
+
+function detectCategory(term) {
+  if (!term) return '';
+  const ioc = extractIOC(term);
+  if (ioc.ipv4s.length || ioc.ipv6s.length) return 'ip';
+  if (ioc.eths.length)                       return 'ethereum';
+  if (ioc.btcs.length)                       return 'bitcoin';
+  if (ioc.emails.length)                     return 'email';
+  if (ioc.urls.length)                       return 'url';
+  if (ioc.domains.length)                    return 'domain';
+  return '';
+}
 
 searchInput.addEventListener('input', function() {
   const hasValue = searchInput.value.length > 0;
   searchClear.style.display = hasValue ? '' : 'none';
   searchHint.style.display = hasValue ? 'none' : '';
+
+  if (magicEnabled) {
+    const detected = detectCategory(searchInput.value.trim());
+    if (detected !== activeCategory) {
+      activeCategory = detected;
+      displayProviders(activeCategory, providerFilter.value);
+      highlightActiveCategory();
+    }
+  }
 });
 
 searchClear.addEventListener('click', function() {
@@ -35,6 +65,9 @@ searchClear.addEventListener('click', function() {
   searchClear.style.display = 'none';
   searchHint.style.display = '';
   searchInput.focus();
+  activeCategory = '';
+  displayProviders('', providerFilter.value);
+  highlightActiveCategory();
 });
 
 providerFilter.addEventListener('input', function() {
